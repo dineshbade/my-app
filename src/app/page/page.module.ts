@@ -8,7 +8,8 @@ import {PageComponent } from './page.component';
 import { Routes, RouterModule } from '@angular/router';
 import {PageRoutingModule} from './page.routing.module';
 import { AuthGuard } from '../common/service/auth.guard';
-
+import { UserProfileModule } from './user-profile/user-profile.module';
+import { UserListModule } from './user-list/user-list.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { AuthGuard } from '../common/service/auth.guard';
   TopNavModule,
 SideNavModule,
  PageRoutingModule,
+ UserProfileModule,
+ UserListModule
   ],
   providers: [ AuthGuard]
 })

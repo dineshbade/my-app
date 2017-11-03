@@ -13,15 +13,23 @@ export class ApiService {
   private jwtService: JwtService
 ) {}
  private setHeaders(): Headers {
+
+   let headers = new Headers();
+   headers.append('Content-Type','application/json');
+    headers.append('Accept', 'application/json');
+    
     const headersConfig = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
 
     if (this.jwtService.getToken()) {
-      headersConfig['Authorization'] = `Token ${this.jwtService.getToken()}`;
+      /*headersConfig['Authorization'] = `Bearer ${this.jwtService.getToken()}`;*/
+      headers.append('Authorization', 'Bearer ' + this.jwtService.getToken());
     }
-    return new Headers(headersConfig);
+return headers;
+  /*  debugger;*/
+    /*return new Headers(headers);*/
   }
 
   private formatErrors(error: any) {
@@ -29,8 +37,11 @@ export class ApiService {
      return Observable.throw(error.json());
   }
 
- get(path: string, params: URLSearchParams = new URLSearchParams()): Observable<any> {
-    return this.http.get(`${environment.api_url}${path}`, { headers: this.setHeaders(), search: params })
+ get(path: string): Observable<any> {
+    debugger;
+    const head= this.setHeaders();
+    console.log(head);
+    return this.http.get(`${environment.api_url}${path}`, { headers: head})
     .catch(this.formatErrors)
     .map((res: Response) => res.json());
   }

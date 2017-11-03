@@ -8,12 +8,20 @@ const pageRoute:Routes = [
 {
 	path:'',
 	component: PageComponent,
+	canActivate :[AuthGuard],
 	children:[
 	{
 		path:'dashboard',
-		loadChildren:'./dashboard/dashboard.module#DashboardModule',
-		canActivate: [AuthGuard]
+		loadChildren:'./dashboard/dashboard.module#DashboardModule'
+	},{
+		path: 'user-profile',
+		loadChildren: './user-profile/user-profile.module#UserProfileModule'
+	},
+	{
+		path:'user-list',
+		loadChildren: './user-list/user-list.module#UserListModule'
 	}
+
 		
 	]
 }

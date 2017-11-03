@@ -6,20 +6,19 @@ import { TopNavModule } from '../../top-nav/top-nav.module';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './dashboard.component';
 import {NgModule} from '@angular/core';
-
+import { RegisterUserTabComponent } from '../../common/component/register-user-tab/register-user-tab.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
-    
+    DashboardComponent,
+    RegisterUserTabComponent
    
   ],
   imports: [
-
     DashboardRoutingModule
    
     ],
-  providers: [AuthGuard],
+  providers: [],
 })
 export class DashboardModule {}

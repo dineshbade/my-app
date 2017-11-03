@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app.routing.modules';
 import { SideNavModule } from './side-nav/side-nav.module';
 import { ApiService } from './common/service/api.service';
 import { JwtService } from './common/service/jwt.service'
+import {AuthGuard } from './common/service/auth.guard';
 
 import {
   ReactiveFormsModule,
