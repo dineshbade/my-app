@@ -1,3 +1,5 @@
+  import {Authority} from './authorities';
+
 export class User {
   private userId: number;
   private email: string;
@@ -8,7 +10,10 @@ export class User {
   private enabled:boolean;
   private token: string;
   private username:string;
-  constructor(userId?: number, email?: string, password?: string, fullName?: string, username?:string, firstName?:string,lastName?:string,enabled?:boolean) {
+  private  authorities=Array<Authority>();
+  constructor(userId?: number, email?: string, password?: string, fullName?: string,
+               username?:string, firstName?:string,lastName?:string,enabled?:boolean,
+               authorities?:Array<Authority>) {
     this.userId = userId;
     this.email = email;
     this.password = password;
@@ -16,6 +21,7 @@ export class User {
     this.username =username;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.authorities=authorities;
   }
 
   set UserId(userId: number) {
@@ -50,7 +56,12 @@ export class User {
   set Enabled(enabled:boolean){
     this.enabled = enabled;
   }
+
+  set Authorities(roles:Array<Authority>){
+    this.authorities=roles;
+  }
   
+ 
   get FirstName(){
     return this.firstName;
   }
@@ -81,7 +92,7 @@ export class User {
     return this.token;
   }
 
-
+  
 
 
 }

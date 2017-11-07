@@ -1,5 +1,5 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
-
+import { ActivatedRoute,  ActivatedRouteSnapshot } from '@angular/router';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -9,8 +9,10 @@ export class UserProfileComponent implements OnInit {
 	
   constructor() { }
 
+
   ngOnInit() {
-  	this.pageTitle = 'User Profile';
-  }
+ /*console.log(this._route.paramMap.get('id'));*/
+  	
+  	 }
 
 }

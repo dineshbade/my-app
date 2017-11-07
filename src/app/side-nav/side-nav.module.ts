@@ -1,7 +1,7 @@
-
+/*
 import { SideNavComponent } from './side-nav.component';
 import { NgModule } from '@angular/core';
-
+import { Router} from '@angular/router';
 @NgModule({
   declarations:[SideNavComponent],
   imports :[],
@@ -9,3 +9,4 @@ import { NgModule } from '@angular/core';
 })
 
 export class SideNavModule{}
+*/

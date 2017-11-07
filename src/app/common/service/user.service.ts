@@ -17,15 +17,35 @@ export class UserService {
       });
   
   }
+
+  registerAdminUser(user):Observable<User>{
+    console.log(user);
+    return this._apiService.post('/api/user',user)
+    .map(
+      result=>{
+        return result.data;
+      });
+  
+  }
   
 
   getTotalUser():Observable<number>{
-  	return this._apiService.get('/countUser')
+  	return this._apiService.get('/api/countUser')
   	.map(result=>{
 
-      debugger;
-  		console.log(result);
+     
   		return result.data;
   		});
+  }
+
+  getAllUser():Observable<User[]>{
+    debugger;
+    return this._apiService.get('/api/users').map(
+      result=>{
+        debugger;
+        console.log(result);
+        return result
+      },
+      error=>console.log(error))
   }
 }

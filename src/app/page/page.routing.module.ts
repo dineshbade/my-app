@@ -20,8 +20,12 @@ const pageRoute:Routes = [
 	{
 		path:'user-list',
 		loadChildren: './user-list/user-list.module#UserListModule'
+	},
+	{
+		path:'admin-user-registration',
+		loadChildren: './admin-user-registration/admin-user-registration.module#AdminUserRegistrationModule'
 	}
-
+	
 		
 	]
 }
