@@ -88,7 +88,7 @@ export class User {
   get FullName() :string{
     return this.fullName;
   }
-  get Token() :string{
+  getToken() :string{
     return this.token;
   }
 

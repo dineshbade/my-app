@@ -22,6 +22,7 @@ import { BrowserModule } from '@angular/platform-browser';
       SideNavComponent
    ],
   imports: [
+      RouterModule,
  	  AdminUserRegistrationModule,
  	  TopNavModule,
 		PageRoutingModule,

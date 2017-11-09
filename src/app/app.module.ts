@@ -26,12 +26,12 @@ import {Http, HttpModule} from '@angular/http';
     PageNotFoundComponent
   ],
   imports: [
- PageModule,
-   HttpModule,
-  FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    AppRoutingModule,
+       PageModule,
+       HttpModule,
+      FormsModule,
+      ReactiveFormsModule,
+      BrowserModule,
+      AppRoutingModule,
   ],
   providers: [ApiService,JwtService],
   bootstrap: [AppComponent]

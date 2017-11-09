@@ -2,13 +2,13 @@ import { AuthService } from '../../service/authService';
 import { JwtService } from '../../service/jwt.service';
 import { User } from '../../../model/user';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Router,ActivatedRoute } from '@angular/router';
+import { UpperCasePipe } from '@angular/common';
 @Component({
   selector: 'app-nav-logged-user-tab',
   templateUrl: './nav-logged-user-tab.component.html',
   styleUrls: ['./nav-logged-user-tab.component.css'],
-  providers: [JwtService,AuthService]
+  providers: [JwtService]
 })
 export class NavLoggedUserTabComponent implements OnInit {
     currentUser:User;
@@ -17,14 +17,16 @@ export class NavLoggedUserTabComponent implements OnInit {
   private _router:Router) { }
 
   ngOnInit() {
-   
- this.authService.currentUser.subscribe((user:User)=>{
-     console.log(user);
-   this.currentUser=user
-
- });
+     debugger;
+    console.log(this._jwtService.getLoggedUser());
+   this.currentUser=this._jwtService.getLoggedUser();
+ // this.authService.currentUser.subscribe((data)=>{
+ //   console.log(data);
+ //   this.currentUser=data;
+  
+ // })
  console.log(this.currentUser);
-  debugger;
+
  /*.
  subscribe((userData)=>{
    debugger;

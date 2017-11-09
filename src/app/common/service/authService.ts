@@ -13,8 +13,8 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
 @Injectable()
 export class AuthService {
- private currentUserSubject = new BehaviorSubject<User>(new User());
-  public currentUser = this.currentUserSubject.asObservable().distinctUntilChanged();
+ private currentUserSubject = new BehaviorSubject<any>(new User());
+  public currentUser = this.currentUserSubject.asObservable();
  constructor(
     private apiService: ApiService,
     private http: Http,
@@ -37,8 +37,14 @@ export class AuthService {
     this.jwtService.saveToken(user.token);
      // Set current user data into observable
      debugger;
-    this.currentUserSubject.next(user);
-      this.currentUser.subscribe((userdata)=>console.log(userdata));
+     console.log(JSON.stringify(user));
+     this.jwtService.saveLoggedUser(JSON.stringify(user));
+    /*this.currentUserSubject.next(new User(user.userId,user.email,
+      user.password,null,null,user.firstName,user.lastName,user.enabled,user.authorities
+            ));
+     */
+    
+    this.currentUserSubject.next(new User(1,'dineshbade1992@gmail.com',null,null,null,'Bade'));
   }
 
  getCurrentUser():User {

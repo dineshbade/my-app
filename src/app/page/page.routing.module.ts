@@ -14,7 +14,7 @@ const pageRoute:Routes = [
 		path:'dashboard',
 		loadChildren:'./dashboard/dashboard.module#DashboardModule'
 	},{
-		path: 'user-profile',
+		path: 'user-profile/:id',
 		loadChildren: './user-profile/user-profile.module#UserProfileModule'
 	},
 	{
