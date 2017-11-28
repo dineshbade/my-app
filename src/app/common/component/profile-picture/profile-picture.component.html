@@ -9,5 +9,5 @@
     <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
   </div>
   <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
-</form> --><img (click)="showFileUploader(fileInput);"  class="profile-user-img img-responsive img-circle" src="../../../../assets/dist/img/user4-128x128.jpg" alt="User profile picture">
+</form> --><img (click)="showFileUploader(fileInput);"  class="profile-user-img img-responsive img-circle" src="http://localhost:8989/resources/Uploaded_Files/profile-picture/{{profilePicturePath}}" alt="User profile picture">
  <input type="file"  class="hidden"id="avatar"  (change)="onFileChange($event)" #fileInput>

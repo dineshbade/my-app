@@ -37,7 +37,7 @@ return headers;
      return Observable.throw(error.json());
   }
 
- get(path: string): Observable<any> {
+ get(path: string,params: URLSearchParams = new URLSearchParams()): Observable<any> {
     debugger;
     const head= this.setHeaders();
     console.log(head);
@@ -74,6 +74,17 @@ return headers;
     )
     .catch(this.formatErrors)
     .map((res: Response) => res.json());
+  }
+  postFormData(path:string,body:Object={}):Observable<any>{
+    let headers= new Headers();
+     if (this.jwtService.getToken()) {
+      /*headersConfig['Authorization'] = `Bearer ${this.jwtService.getToken()}`;*/
+      headers.append('Authorization', 'Bearer ' + this.jwtService.getToken());
+    }
+    
+    debugger;
+    return this.http.post( `${environment.api_url}${path}`,body,{headers:headers})
+                .catch(this.formatErrors).map((res:Response)=>res.json());
   }
 
 }

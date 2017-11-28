@@ -30,7 +30,7 @@ export class UserService {
   
 
   getTotalUser():Observable<number>{
-  	return this._apiService.get('/api/countUser')
+  	return this._apiService.get('/api/countUser',null)
   	.map(result=>{
 
      
@@ -40,12 +40,24 @@ export class UserService {
 
   getAllUser():Observable<User[]>{
     debugger;
-    return this._apiService.get('/api/users').map(
-      result=>{
-        debugger;
-        console.log(result);
+    return this._apiService.get('/api/users',null).map(
+      result=>{ 
+     
         return result
       },
       error=>console.log(error))
+  }
+
+  getUserById(userId:number):Observable<User>{
+    return this._apiService.get('/api/users/'+userId,null)
+                            .map((result:User)=>{return result});
+  }
+
+
+  updateProfilePicture(formData:any,userId:number){
+      this._apiService.postFormData('/api/userProfilePicture/'+userId,formData).subscribe((result)=>{
+        debugger;
+        console.log(result);
+      })
   }
 }

@@ -10,9 +10,11 @@ export class User {
   private enabled:boolean;
   private token: string;
   private username:string;
+  public registrationDate:Date
   private  authorities=Array<Authority>();
   constructor(userId?: number, email?: string, password?: string, fullName?: string,
                username?:string, firstName?:string,lastName?:string,enabled?:boolean,
+               registrationDate?:Date,
                authorities?:Array<Authority>) {
     this.userId = userId;
     this.email = email;
@@ -22,6 +24,7 @@ export class User {
     this.firstName = firstName;
     this.lastName = lastName;
     this.authorities=authorities;
+    this.registrationDate=registrationDate;
   }
 
   set UserId(userId: number) {
@@ -61,7 +64,13 @@ export class User {
     this.authorities=roles;
   }
   
- 
+   set RegistrationDate(registrationDate:Date){
+     this.registrationDate=registrationDate;
+   }
+
+   get RegistrationDate():Date{
+     return this.registrationDate;
+   }
   get FirstName(){
     return this.firstName;
   }

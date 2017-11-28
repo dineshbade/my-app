@@ -22,13 +22,16 @@
                   <th>S.No</th>
                   <th>Full Name</th>
                   <th>Email</th>
+                  <th>Registration Date</th>
                   <th>Role</th>
                 </tr>
                 <tr *ngFor="let user of userList; let i = index">
                   <td>{{i+1}}</td>
                   <td>{{user.lastName |uppercase }} {{user.firstName | uppercase}} </td>
                   <td>{{user.email | uppercase}}</td>
+                   <td>{{user.registrationDate  | date}}</td>
                   <td *ngIf="user.authorities.length>0"><span class="label label-success">{{user.authorities[0].name | uppercase}}</span></td>
+
                   <td *ngIf="user.authorities.length==0"><span class="label label-success"></span></td>
                 </tr>
                

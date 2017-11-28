@@ -24,7 +24,12 @@ const pageRoute:Routes = [
 	{
 		path:'admin-user-registration',
 		loadChildren: './admin-user-registration/admin-user-registration.module#AdminUserRegistrationModule'
+	},
+	{
+		path:'program',
+		loadChildren:'./program/program.module#ProgramModule'
 	}
+
 	
 		
 	]

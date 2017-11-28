@@ -3,7 +3,7 @@ import { JwtService } from '../../service/jwt.service';
 import { User } from '../../../model/user';
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { UpperCasePipe } from '@angular/common';
+
 @Component({
   selector: 'app-nav-logged-user-tab',
   templateUrl: './nav-logged-user-tab.component.html',
@@ -14,7 +14,8 @@ export class NavLoggedUserTabComponent implements OnInit {
     currentUser:User;
   constructor(private _jwtService: JwtService,
     private authService:AuthService,
-  private _router:Router) { }
+  private _router:Router
+) { }
 
   ngOnInit() {
      debugger;

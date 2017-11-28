@@ -1,22 +1,34 @@
-import { Component, ElementRef, ViewChild,OnInit } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild,OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { User } from '../../../model/user';
 
+import { UserService } from '../../service/user.service';
 @Component({
   selector: 'app-profile-picture',
   templateUrl: './profile-picture.component.html',
   styleUrls: ['./profile-picture.component.css']
 })
 export class ProfilePictureComponent implements OnInit {
+  @Input()
+  user:any;
+  profilePicturePath:String;
 
  form: FormGroup;
   loading: boolean = false;
 
   @ViewChild('fileInput') fileInput: ElementRef;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private _userService:UserService) {
     this.createForm();
+    
+  }
+    ngAfterViewChecked() {
+
+   
+   this.profilePicturePath= this.user.profilePicture.thumbnailPath;
   }
  ngOnInit() {
+  
   }
 createForm() {
     this.form = this.fb.group({
@@ -33,7 +45,10 @@ createForm() {
     if(event.target.files.length > 0) {
 
       let file = event.target.files[0];
-      this.form.get('avatar').setValue(file);
+      let formData = new FormData();
+      formData.append("file",file);
+      this._userService.updateProfilePicture(formData,this.user.userId);
+    /*  this.form.get('avatar').setValue(file);*/
     }
   }
 

@@ -1,6 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { SideNavComponent } from '../side-nav/side-nav.component';
+import { CommonModule } from '@angular/common';
 
 import { TopNavModule } from '../top-nav/top-nav.module';
 import {PageComponent } from './page.component';
@@ -15,6 +16,7 @@ import {
   FormsModule
 } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProgramModule } from './program/program.module';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { BrowserModule } from '@angular/platform-browser';
       SideNavComponent
    ],
   imports: [
+      ProgramModule,
       RouterModule,
- 	  AdminUserRegistrationModule,
- 	  TopNavModule,
-		PageRoutingModule,
- 		UserProfileModule,
-		UserListModule
+ 	    AdminUserRegistrationModule,
+ 	    TopNavModule,
+		  PageRoutingModule,
+ 		  UserProfileModule,
+		  UserListModule,
+      CommonModule
   ],
   providers: [ AuthGuard]
 })
